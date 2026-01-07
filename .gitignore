@@ -1,6 +1,12 @@
 .env
 .db_config.json
-db
+db/
 .Renviron
 .RData
 .Rhistory
+.DS_Store
+__pycache__/
+*.pyc
+.env
+venv/
+.idea/
