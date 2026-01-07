@@ -17,7 +17,7 @@ organized to reflect increasing modeling and system complexity.
 
 🔗 **Live App**: https://bowenlizh.shinyapps.io/dbacks-batting/
 
-![Decision View][./03_dbacks_statcast_dashboard/app_overview.png]
+![App View](./03_dbacks_statcast_dashboard/app_overview.png)
 
 - Objective: Build an interactive hitter analysis tool
 - Focus: Decision, Contact, and Damage decomposition

@@ -5,7 +5,7 @@ The dashboard is designed to mirror a professional baseball analytics workflow, 
 
 🔗 **Live App**: https://bowenlizh.shinyapps.io/dbacks-batting/
 
-![Decision View][app_overview.png]
+![App View](app_overview.png)
 
 ---
 
