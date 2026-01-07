@@ -1,0 +1,13 @@
+name: dbacks-batting
+title: dbacks-batting
+username: bowenlizh
+account: bowenlizh
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16372681
+bundleId: 11409859
+url: https://bowenlizh.shinyapps.io/dbacks-batting/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app_overview.png|docker-compose.yml|profile.py|README.md|scrape.py
