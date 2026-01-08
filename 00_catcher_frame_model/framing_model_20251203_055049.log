@@ -1,0 +1,149 @@
+=== Training run started ===
+Args: Namespace(train_csv='ML_TAKES_ENCODED.csv', model_out='framing_model.pkl', n_splits=5)
+Model will be saved to: /Users/brycelee/Desktop/baseball_first/framing_model_20251203_055049.pkl
+Log file: /Users/brycelee/Desktop/baseball_first/framing_model_20251203_055049.log
+Loading training data from: ML_TAKES_ENCODED.csv
+Loading training data from: ML_TAKES_ENCODED.csv
+Preparing target...
+Selecting features...
+Using 23 features (no feature engineering).
+Numeric features: ['BALLS', 'STRIKES', 'OUTS', 'PLATELOCHEIGHT', 'PLATELOCSIDE', 'BOT_ZONE', 'TOP_ZONE', 'RELHEIGHT', 'RELSIDE', 'EXTENSION', 'RELSPEED', 'VERTRELANGLE', 'HORZRELANGLE', 'INDUCEDVERTBREAK', 'HORZBREAK', 'HORZAPPRANGLE', 'VERTAPPRANGLE', 'RUNNERS_ON', 'BASE_CONFIGURATION']
+Categorical features: ['AUTOPITCHTYPE', 'PI_PITCH_TYPE', 'BATTERSIDE', 'PITCHERTHROWS']
+Running cross-validation...
+Running 5-fold StratifiedKFold CV...
+
+=== Fold 1/5 ===
+[LightGBM] [Info] Number of positive: 279532, number of negative: 607824
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.006775 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 3426
+[LightGBM] [Info] Number of data points in the train set: 887356, number of used features: 23
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.315017 -> initscore=-0.776769
+[LightGBM] [Info] Start training from score -0.776769
+Training until validation scores don't improve for 100 rounds
+[50]	valid_0's auc: 0.983615	valid_0's binary_logloss: 0.17313
+[100]	valid_0's auc: 0.984748	valid_0's binary_logloss: 0.148806
+[150]	valid_0's auc: 0.985162	valid_0's binary_logloss: 0.14529
+[200]	valid_0's auc: 0.985297	valid_0's binary_logloss: 0.144393
+[250]	valid_0's auc: 0.985275	valid_0's binary_logloss: 0.145191
+[300]	valid_0's auc: 0.985306	valid_0's binary_logloss: 0.144726
+Early stopping, best iteration is:
+[224]	valid_0's auc: 0.985307	valid_0's binary_logloss: 0.14431
+Fold 1 AUC:      0.9853
+Fold 1 LogLoss: 0.1443
+Fold 1 RMSE:    0.2111
+Fold 1 best_iteration_: 224
+
+=== Fold 2/5 ===
+[LightGBM] [Info] Number of positive: 279533, number of negative: 607824
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.009385 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 3426
+[LightGBM] [Info] Number of data points in the train set: 887357, number of used features: 23
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.315018 -> initscore=-0.776765
+[LightGBM] [Info] Start training from score -0.776765
+Training until validation scores don't improve for 100 rounds
+[50]	valid_0's auc: 0.983502	valid_0's binary_logloss: 0.174168
+[100]	valid_0's auc: 0.984565	valid_0's binary_logloss: 0.149775
+[150]	valid_0's auc: 0.984984	valid_0's binary_logloss: 0.146179
+[200]	valid_0's auc: 0.985081	valid_0's binary_logloss: 0.146299
+[250]	valid_0's auc: 0.984876	valid_0's binary_logloss: 0.150807
+Early stopping, best iteration is:
+[199]	valid_0's auc: 0.985125	valid_0's binary_logloss: 0.145222
+Fold 2 AUC:      0.9851
+Fold 2 LogLoss: 0.1452
+Fold 2 RMSE:    0.2121
+Fold 2 best_iteration_: 199
+
+=== Fold 3/5 ===
+[LightGBM] [Info] Number of positive: 279533, number of negative: 607824
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.009899 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 3425
+[LightGBM] [Info] Number of data points in the train set: 887357, number of used features: 23
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.315018 -> initscore=-0.776765
+[LightGBM] [Info] Start training from score -0.776765
+Training until validation scores don't improve for 100 rounds
+[50]	valid_0's auc: 0.983275	valid_0's binary_logloss: 0.174545
+[100]	valid_0's auc: 0.984385	valid_0's binary_logloss: 0.15047
+[150]	valid_0's auc: 0.984815	valid_0's binary_logloss: 0.14691
+[200]	valid_0's auc: 0.984939	valid_0's binary_logloss: 0.146378
+[250]	valid_0's auc: 0.984875	valid_0's binary_logloss: 0.148074
+Early stopping, best iteration is:
+[182]	valid_0's auc: 0.98493	valid_0's binary_logloss: 0.146166
+Fold 3 AUC:      0.9849
+Fold 3 LogLoss: 0.1462
+Fold 3 RMSE:    0.2127
+Fold 3 best_iteration_: 182
+
+=== Fold 4/5 ===
+[LightGBM] [Info] Number of positive: 279533, number of negative: 607824
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.008968 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 3427
+[LightGBM] [Info] Number of data points in the train set: 887357, number of used features: 23
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.315018 -> initscore=-0.776765
+[LightGBM] [Info] Start training from score -0.776765
+Training until validation scores don't improve for 100 rounds
+[50]	valid_0's auc: 0.983494	valid_0's binary_logloss: 0.174034
+[100]	valid_0's auc: 0.984548	valid_0's binary_logloss: 0.149857
+[150]	valid_0's auc: 0.984927	valid_0's binary_logloss: 0.146434
+[200]	valid_0's auc: 0.984993	valid_0's binary_logloss: 0.146784
+[250]	valid_0's auc: 0.985077	valid_0's binary_logloss: 0.145804
+Early stopping, best iteration is:
+[198]	valid_0's auc: 0.985061	valid_0's binary_logloss: 0.14554
+Fold 4 AUC:      0.9851
+Fold 4 LogLoss: 0.1455
+Fold 4 RMSE:    0.2123
+Fold 4 best_iteration_: 198
+
+=== Fold 5/5 ===
+[LightGBM] [Info] Number of positive: 279533, number of negative: 607824
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.009095 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 3424
+[LightGBM] [Info] Number of data points in the train set: 887357, number of used features: 23
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.315018 -> initscore=-0.776765
+[LightGBM] [Info] Start training from score -0.776765
+Training until validation scores don't improve for 100 rounds
+[50]	valid_0's auc: 0.983524	valid_0's binary_logloss: 0.17416
+[100]	valid_0's auc: 0.984613	valid_0's binary_logloss: 0.14962
+[150]	valid_0's auc: 0.985021	valid_0's binary_logloss: 0.145983
+[200]	valid_0's auc: 0.985182	valid_0's binary_logloss: 0.144937
+[250]	valid_0's auc: 0.985212	valid_0's binary_logloss: 0.145012
+[300]	valid_0's auc: 0.985121	valid_0's binary_logloss: 0.146306
+Early stopping, best iteration is:
+[210]	valid_0's auc: 0.98519	valid_0's binary_logloss: 0.144879
+Fold 5 AUC:      0.9852
+Fold 5 LogLoss: 0.1449
+Fold 5 RMSE:    0.2121
+Fold 5 best_iteration_: 210
+
+=== CV Summary ===
+Mean AUC:      0.9851 ± 0.0001
+Mean LogLoss:  0.1452 ± 0.0006
+Mean RMSE:     0.2121 ± 0.0006
+Average best_iteration_ across folds (filtered): 202
+Best n_estimators from CV: 202
+Training final model...
+
+Training final model on full data with n_estimators=202...
+[LightGBM] [Info] Number of positive: 349416, number of negative: 759780
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.008213 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 3423
+[LightGBM] [Info] Number of data points in the train set: 1109196, number of used features: 23
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.315017 -> initscore=-0.776766
+[LightGBM] [Info] Start training from score -0.776766
+Final model trained.
+Saving model to: /Users/brycelee/Desktop/baseball_first/framing_model_20251203_055049.pkl
+
+Saved final model to: /Users/brycelee/Desktop/baseball_first/framing_model_20251203_055049.pkl
+Model saved successfully.
+=== Training run finished ===
