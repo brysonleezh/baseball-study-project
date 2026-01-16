@@ -5,9 +5,9 @@ account: bowenlizh
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 16439486
-bundleId: 11451038
+bundleId: 11451269
 url: https://bowenlizh.shinyapps.io/04_pd_analyst_dashboard/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: .RData|README.md
+ignoredFiles: .RData|goal_overview.png|pitcher_93229_report.pdf|player_overview.png|README.md|report_overview.png|trend_overview.png

@@ -22,9 +22,15 @@ app_server <- function(input, output, session) {
   # 1) Basic cleaning
   # ----------------------------
   events <- data$events %>%
-    mutate(sched_date = as.Date(sched_date, format = "%m/%d/%Y"))
+    mutate(sched_date = as.Date(sched_date, format = "%m/%d/%Y")) %>%
+    filter(!is.na(sched_date)) %>%
+    arrange(pitcher_id, sched_date)
+  
   pitches <- data$pitches %>%
-    mutate(sched_date = as.Date(sched_date, format = "%m/%d/%Y"))
+    mutate(sched_date = as.Date(sched_date, format = "%m/%d/%Y")) %>%
+    filter(!is.na(sched_date)) %>%
+    arrange(pitcher_id, sched_date)
+  
   
   goals <- data$goals
   
@@ -112,19 +118,13 @@ app_server <- function(input, output, session) {
   # ----------------------------
   pitcher_events <- reactive({
     req(input$pitcher_id)
-    events %>%
-      filter(pitcher_id == input$pitcher_id) %>%
-      filter(!is.na(sched_date)) %>%
-      arrange(sched_date)
-  })
+    events %>% filter(pitcher_id == input$pitcher_id)
+  }) %>% bindCache(input$pitcher_id)
   
   pitcher_pitches <- reactive({
     req(input$pitcher_id)
-    pitches %>%
-      filter(pitcher_id == input$pitcher_id) %>%
-      filter(!is.na(sched_date)) %>%
-      arrange(sched_date)
-  })
+    pitches %>% filter(pitcher_id == input$pitcher_id)
+  }) %>% bindCache(input$pitcher_id)
   
   date_bounds <- reactive({
     ev <- pitcher_events()
@@ -723,7 +723,8 @@ app_server <- function(input, output, session) {
   # 9) Trends view (per game day, rolling by games)
   # ----------------------------
   daily_metrics <- reactive({
-    ev <- pitcher_events()
+    req(input$pitcher_id)
+    ev  <- pitcher_events()
     pit <- pitcher_pitches()
     if (nrow(ev) == 0) return(NULL)
     
@@ -737,9 +738,9 @@ app_server <- function(input, output, session) {
         bb_rate = safe_div(sum(bb, na.rm = TRUE), sum(pa, na.rm = TRUE)),
         k_rate  = safe_div(sum(so, na.rm = TRUE), sum(pa, na.rm = TRUE)),
         slg = safe_div(
-          1 * sum(`X1b`, na.rm = TRUE) +
-            2 * sum(`X2b`, na.rm = TRUE) +
-            3 * sum(`X3b`, na.rm = TRUE) +
+          1 * sum(X1b, na.rm = TRUE) +
+            2 * sum(X2b, na.rm = TRUE) +
+            3 * sum(X3b, na.rm = TRUE) +
             4 * sum(hr,  na.rm = TRUE),
           sum(ab, na.rm = TRUE)
         ),
@@ -750,24 +751,15 @@ app_server <- function(input, output, session) {
       filter(balls_before == 0, strikes_before == 0) %>%
       group_by(sched_date) %>%
       summarise(
-        fps = safe_div(
-          sum(vapply(pitch_result, is_first_pitch_strike, logical(1)), na.rm = TRUE),
-          n()
-        ),
+        fps = safe_div(sum(vapply(pitch_result, is_first_pitch_strike, logical(1)), na.rm = TRUE), n()),
         .groups = "drop"
       )
     
     ev_day %>%
       left_join(fp_day, by = "sched_date") %>%
-      mutate(
-        sched_date = as.Date(lubridate::parse_date_time(
-          as.character(sched_date),
-          orders = c("ymd", "mdy", "m/d/y", "m/d/Y")
-        ))
-      ) %>%
+      mutate(sched_date = as.Date(sched_date)) %>%
       arrange(sched_date)
-    
-  })
+  }) %>% bindCache(input$pitcher_id)
   
   roll_mean <- function(x, n) {
     # rolling mean with NA-safe behavior

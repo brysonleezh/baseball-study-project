@@ -72,8 +72,9 @@ shiny::runApp()
 
 ## Performance Considerations
 
-- Data is loaded once to avoid repeated disk reads
-- Reactive expressions are scoped to pitcher-level filters only
+- Data is loaded once to avoid repeated disk reads. Date parsing on large tables is slow. Doing it once prevents repeated work.
+- Centralized filtering with reactives. Created shared reactives like: pitcher_events(), pitcher_pitches()...
+- Added caching for expensive reactives
 - Metics are aggregated before visualizations
 - Report generation uses base graphics (grid) instead of LaTeX for speed
 - No database connections or external APIs are required
