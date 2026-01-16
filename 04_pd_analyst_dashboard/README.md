@@ -67,7 +67,8 @@ shiny::runApp()
     - Rolling trend computation
     - Goal parsing and evaluation
     - PDF report generation using grid
-
+- pitcher_93229_report.pdf
+    - Click download button for a player report
 
 ## Performance Considerations
 
