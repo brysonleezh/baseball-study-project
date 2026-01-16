@@ -11,6 +11,8 @@ The dashboard emphasizes **clarity, speed, and coach relevance**, focusing on fo
 
 The goal is to minimize clicks and allow users to reach insight within seconds.
 
+🔗 **Live App**: https://bowenlizh.shinyapps.io/04_pd_analyst_dashboard/
+
 ---
 
 ## How to Run the App

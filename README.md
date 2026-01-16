@@ -27,3 +27,11 @@ organized to reflect increasing modeling and system complexity.
 - Objective: Build an interactive hitter analysis tool
 - Focus: Decision, Contact, and Damage decomposition
 - Output: Deployed R Shiny application
+
+
+## 04. Player Development Analytics Dashboard (R Shiny)
+
+🔗 **Live App**: https://bowenlizh.shinyapps.io/04_pd_analyst_dashboard/
+
+![App View](./04_pd_analyst_dashboard/player_overview.png)
+![App View](./04_pd_analyst_dashboard/trend_overview.png)
